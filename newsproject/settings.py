@@ -151,10 +151,10 @@ LOGOUT_REDIRECT_URL = 'pagesapphome'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-DEFAULT_FROM_EMAIL = "m.anyanwu@stu.unizik.edu.ng"
-EMAIL_HOST = "smtp.sendgrid.net"
-EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD = "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"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = env.str('EMAIL_BACKEND')
+DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAI')
+EMAIL_HOST = env.str('EMAIL_HOST')
+EMAIL_HOST_USER = env.str('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env.int('EMAIL_PORT')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
