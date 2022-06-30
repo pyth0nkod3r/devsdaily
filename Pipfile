@@ -5,12 +5,14 @@ name = "pypi"
 
 [packages]
 gunicorn = "*"
-whitenoise = "*"
+whitenoise = {extras = ["brotli"], version = "*"}
 django-crispy-forms = "*"
 django = "*"
 django-ckeditor = "*"
 environs = {extras = ["django"], version = "*"}
 psycopg2 = "*"
+brotli = "*"
+brotlipy = "*"
 
 [dev-packages]
 
