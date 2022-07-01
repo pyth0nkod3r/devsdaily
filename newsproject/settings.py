@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from environs import Env
 env = Env()
 env.read_env()
@@ -27,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY=env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=True)
+DEBUG = env.bool('DEBUGGER', default=False)
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', 'localhost']
 
@@ -138,8 +137,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -149,11 +148,11 @@ AUTH_USER_MODEL = 'accountsapp.customUser'
 LOGIN_REDIRECT_URL = 'pagesapphome'
 LOGOUT_REDIRECT_URL = 'pagesapphome'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+
 DEFAULT_FROM_EMAIL=env.str('DEFAULT_FROM_EMAIL')
-email = env.dj_email_url("EMAIL_URL", default="smtp://")
-EMAIL_HOST=email('EMAIL_HOST')
-EMAIL_HOST_USER=email('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD=email('EMAIL_HOST_PASSWORD')
-EMAIL_PORT=email('EMAIL_PORT')
-EMAIL_USE_TLS=email('EMAIL_USE_TLS')
+EMAIL_HOST=env.str('EMAIL_HOST')
+EMAIL_HOST_USER=env.str('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=env.str('EMAIL_HOST_PASSWORD')
+EMAIL_PORT=env.int('EMAIL_PORT')
+EMAIL_USE_TLS=env.bool('EMAIL_USE_TLS')

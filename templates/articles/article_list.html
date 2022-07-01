@@ -11,15 +11,18 @@
   </div>
   <div class="card-body">
     <!--h5 class="card-title">Special title treatment</h5-->
+    <p class="m-auto p-auto">{{article.body}}</p>
      {% if user == article.author %}
-    <p>{{article.body}}</p>
     <!--a href="#" class="btn btn-primary">Go somewhere</a-->
-    <a href="{% url 'articleupdate' article.pk %}">Edit</a> |
+    <div class="pt-3">
+        <a href="{% url 'articleupdate' article.pk %}">Edit</a> |
     <a href="{% url 'articledelete' article.pk %}">Delete</a>
+    </div>
+    
     {% endif %}
   </div>
-  
-  <div class="card-footer" style="background-color: #E9E3D9;">
+  {% if article.comments.all %}
+  <div class="card-footer pb-0" style="background-color: #E9E3D9;">
       {% for each_comment in article.comments.all %}
       <p>
           <span class="font-weight-bold">
@@ -29,6 +32,7 @@
       </p>
       {% endfor %}
   </div>
+  {% endif %}
 </div>
 {% endfor %}
 {% endblock content %}

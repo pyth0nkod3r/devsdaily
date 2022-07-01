@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="card">
+<div class="card" >
     <div class="article-entry">
-    <h2 class="card-header">{{article.title}}</h2>
-    <p class="card-header">{{article.author}} | {{article.date}}</p>
-    <p class="card-body">{{article.body}}</p>
+    <h2 class="card-header" style="background-color: #E9E3D9;">{{article.title}}</h2>
+    <p class="card-header" style="background-color: #E9E3D9;">{{article.author}} | {{article.date}}</p>
+    <p class="card-body pl-3 my-2">{{article.body}}</p>
 </div>
-
-<p class="card-footer">
-    {% if user == article.author %}
+    {% if user == article.author %} 
+<span class="card-footer pl-3">
     <a href="{% url 'articleupdate' article.pk %}">Edit</a> | 
     <a href="{% url 'articledelete' article.pk %}">Delete</a>
+</span>
     {% endif %}
-</p>
-<p class="pl-3">Return to
+<div  style="background-color: #E9E3D9;" >
+    <p class="pl-3 my-2" >Return to
     <a href="{% url 'articlelist' %}">All Articles</a>
 </p>
+</div>
 </div>
 {% endblock content %}

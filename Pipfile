@@ -9,10 +9,14 @@ whitenoise = {extras = ["brotli"], version = "*"}
 django-crispy-forms = "*"
 django = "*"
 django-ckeditor = "*"
-environs = {extras = ["django"], version = "*"}
 psycopg2 = "*"
 brotli = "*"
 brotlipy = "*"
+pip-autoremove = "*"
+pipdeptree = "*"
+setuptools = "*"
+environs = {extras = ["django"], version = "*"}
+tzdata = "*"
 
 [dev-packages]
 
