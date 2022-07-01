@@ -1,3 +1,3 @@
 # dailydev
 Dev Chronicles 
-Hosted at: <b><a href='dailydev.herokuapp.com'>dailydev.herokuapp.com</a></b>
+Hosted at: <b><a href='devzdee.herokuapp.com'>devzdee.herokuapp.com</a></b>
