@@ -4,7 +4,7 @@
 {% block content %}
 {% for article in all_articles_list %}
 <div class="card text-center mb-4 "> 
-  <div class="card-header">
+  <div class="card-header" style="background-color: #E9E3D9;">
     <a href="{% url 'articledetail' article.pk %}">
         <span class="font-weight-bold">{{article.title}}</span></a> &middot;
     <span class="text-muted">by {{article.author}} | {{article.date}}</span>
@@ -19,7 +19,7 @@
     {% endif %}
   </div>
   
-  <div class="card-footer">
+  <div class="card-footer" style="background-color: #E9E3D9;">
       {% for each_comment in article.comments.all %}
       <p>
           <span class="font-weight-bold">

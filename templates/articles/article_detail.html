@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="article-entry">
-    <h2>{{article.title}}</h2>
-    <p>by {{article.author}} | {{article.date}}</p>
-    <p>{{article.body}}</p>
-    <div class="">
-        
-    </div>
+<div class="card">
+    <div class="article-entry">
+    <h2 class="card-header">{{article.title}}</h2>
+    <p class="card-header">{{article.author}} | {{article.date}}</p>
+    <p class="card-body">{{article.body}}</p>
 </div>
-<p>
+
+<p class="card-footer">
     {% if user == article.author %}
     <a href="{% url 'articleupdate' article.pk %}">Edit</a> | 
     <a href="{% url 'articledelete' article.pk %}">Delete</a>
     {% endif %}
 </p>
-<p>Return to
+<p class="pl-3">Return to
     <a href="{% url 'articlelist' %}">All Articles</a>
 </p>
+</div>
 {% endblock content %}
